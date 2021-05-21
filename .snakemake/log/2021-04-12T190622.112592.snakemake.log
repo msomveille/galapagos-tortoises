@@ -1,0 +1,37 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Conda environments: ignored
+Job counts:
+	count	jobs
+	1	all
+	1	plot_figures
+	3	seed_dispersal
+	5
+Select jobs to execute...
+
+[Mon Apr 12 19:06:22 2021]
+rule seed_dispersal:
+    input: resources/Elevation/SRTM_Santa_Cruz.tif, results/output/000/simulated_movements.RData, resources/LandCover/Galapagos_Agroecosystems_LandCover2018.shp, resources/SDM_guava/Current/psidium_current_cut.gri
+    output: results/output/100/simulated_data_seeds_1.RData
+    jobid: 4
+    wildcards: mfreq=1
+
+[Mon Apr 12 19:07:05 2021]
+Error in rule seed_dispersal:
+    jobid: 4
+    output: results/output/100/simulated_data_seeds_1.RData
+
+RuleException:
+CalledProcessError in line 15 of /Volumes/Marius_SSD/Yale-MPIO/Galapagos/Galapagos-tortoise-migration/galapagos-tortoises/workflow/rules/seed-dispersal.smk:
+Command 'set -euo pipefail;  Rscript --vanilla /Volumes/Marius_SSD/Yale-MPIO/Galapagos/Galapagos-tortoise-migration/galapagos-tortoises/.snakemake/scripts/tmp2o1a07_o.101-seed_dispersal.R' returned non-zero exit status 1.
+  File "/Users/mariussomveille/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2326, in run_wrapper
+  File "/Volumes/Marius_SSD/Yale-MPIO/Galapagos/Galapagos-tortoise-migration/galapagos-tortoises/workflow/rules/seed-dispersal.smk", line 15, in __rule_seed_dispersal
+  File "/Users/mariussomveille/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 568, in _callback
+  File "/Users/mariussomveille/miniconda3/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+  File "/Users/mariussomveille/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 554, in cached_or_run
+  File "/Users/mariussomveille/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2357, in run_wrapper
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /Volumes/Marius_SSD/Yale-MPIO/Galapagos/Galapagos-tortoise-migration/galapagos-tortoises/.snakemake/log/2021-04-12T190622.112592.snakemake.log

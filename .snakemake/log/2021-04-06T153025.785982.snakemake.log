@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 43 of /Volumes/Marius_SSD/Yale-MPIO/Galapagos/Galapagos-tortoise-migration/galapagos-tortoises/workflow/rules/simulate-migrations.smk:
+Missing input files for rule simulate_movements:
+results/output/000/downslope_migration.RData

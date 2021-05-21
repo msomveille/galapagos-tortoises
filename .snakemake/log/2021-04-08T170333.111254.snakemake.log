@@ -1,0 +1,32 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Conda environments: ignored
+Job counts:
+	count	jobs
+	1	all
+	1	plot_figures
+	2
+Select jobs to execute...
+
+[Thu Apr  8 17:03:33 2021]
+rule plot_figures:
+    input: resources/Elevation/SRTM_Santa_Cruz.tif, results/output/000/chull_highland.shp, results/output/000/chull_lowland.shp, results/output/000/galapagos_hexagons_data.csv, results/output/000/ORSIMresults.csv, results/output/000/simulated_movements.RData, results/output/100/simulated_data_seeds_1.RData, results/output/100/simulated_data_seeds_2.RData, results/output/100/simulated_data_seeds_4.RData, resources/Dung/collected_dungpiles.csv, resources/LandCover/Galapagos_Agroecosystems_LandCover2018.shp, resources/LandCover/benitez_landcover_Santa_Cruz.shp, results/output/000/downslope_migration.RData
+    output: results/figures/Figure_2.jpg, results/figures/Figure_3.jpg, results/figures/Figure_S1.jpg, results/figures/Figure_S2.jpg, results/figures/Figure_S3.jpg, results/figures/Figure_S4.jpg, results/figures/Figure_S6.jpg
+    jobid: 1
+
+[Thu Apr  8 17:05:05 2021]
+Finished job 1.
+1 of 2 steps (50%) done
+Select jobs to execute...
+
+[Thu Apr  8 17:05:05 2021]
+localrule all:
+    input: results/figures/Figure_2.jpg, results/figures/Figure_3.jpg
+    jobid: 0
+
+[Thu Apr  8 17:05:05 2021]
+Finished job 0.
+2 of 2 steps (100%) done
+Complete log: /Volumes/Marius_SSD/Yale-MPIO/Galapagos/Galapagos-tortoise-migration/galapagos-tortoises/.snakemake/log/2021-04-08T170333.111254.snakemake.log

@@ -1,0 +1,6 @@
+Building DAG of jobs...
+MissingInputException in line 5 of /Volumes/Marius_SSD/Yale-MPIO/Galapagos/Galapagos-tortoise-migration/galapagos-tortoises/workflow/Snakefile:
+Missing input files for rule all:
+results/figures/Figure_S6.jpg
+results/figures/Figure_S2.jpg
+results/figures/Figure_S1.jpg

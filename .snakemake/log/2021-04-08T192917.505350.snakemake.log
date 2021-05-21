@@ -1,0 +1,3 @@
+SyntaxError in line 31 of /Volumes/Marius_SSD/Yale-MPIO/Galapagos/Galapagos-tortoise-migration/galapagos-tortoises/workflow/rules/simulate-migrations.smk:
+invalid syntax
+  File "/Volumes/Marius_SSD/Yale-MPIO/Galapagos/Galapagos-tortoise-migration/galapagos-tortoises/workflow/Snakefile", line 12, in <module>

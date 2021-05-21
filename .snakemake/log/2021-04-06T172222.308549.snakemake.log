@@ -1,0 +1,39 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Conda environments: ignored
+Job counts:
+	count	jobs
+	1	all
+	1	data_prep
+	1	plot_figures
+	1	run_ORSIM
+	3	seed_dispersal
+	1	simulate_movements
+	8
+Select jobs to execute...
+
+[Tue Apr  6 17:22:22 2021]
+rule data_prep:
+    input: resources/Elevation/SRTM_Santa_Cruz.tif, resources/NDVI/NDVI_highlands.tif, resources/NDVI/NDVI_lowlands.tif, results/output/000/chull_highland.shp, results/output/000/chull_lowland.shp
+    output: results/output/000/galapagos_hexagons_data.csv, results/output/000/distanceMatrix.csv
+    jobid: 2
+
+[Tue Apr  6 17:22:26 2021]
+Error in rule data_prep:
+    jobid: 2
+    output: results/output/000/galapagos_hexagons_data.csv, results/output/000/distanceMatrix.csv
+
+RuleException:
+CalledProcessError in line 28 of /Volumes/Marius_SSD/Yale-MPIO/Galapagos/Galapagos-tortoise-migration/galapagos-tortoises/workflow/rules/simulate-migrations.smk:
+Command 'set -euo pipefail;  Rscript --vanilla /Volumes/Marius_SSD/Yale-MPIO/Galapagos/Galapagos-tortoise-migration/galapagos-tortoises/.snakemake/scripts/tmpx7pyr64i.002-data_prep.R' returned non-zero exit status 1.
+  File "/Users/mariussomveille/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2326, in run_wrapper
+  File "/Volumes/Marius_SSD/Yale-MPIO/Galapagos/Galapagos-tortoise-migration/galapagos-tortoises/workflow/rules/simulate-migrations.smk", line 28, in __rule_data_prep
+  File "/Users/mariussomveille/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 568, in _callback
+  File "/Users/mariussomveille/miniconda3/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+  File "/Users/mariussomveille/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 554, in cached_or_run
+  File "/Users/mariussomveille/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2357, in run_wrapper
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /Volumes/Marius_SSD/Yale-MPIO/Galapagos/Galapagos-tortoise-migration/galapagos-tortoises/.snakemake/log/2021-04-06T172222.308549.snakemake.log

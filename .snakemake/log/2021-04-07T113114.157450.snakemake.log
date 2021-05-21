@@ -1,0 +1,37 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Conda environments: ignored
+Job counts:
+	count	jobs
+	1	all
+	1	plot_figures
+	2
+Select jobs to execute...
+
+[Wed Apr  7 11:31:14 2021]
+rule plot_figures:
+    input: resources/Elevation/SRTM_Santa_Cruz.tif, results/output/000/chull_highland.shp, results/output/000/chull_lowland.shp, results/output/000/galapagos_hexagons_data.csv, results/output/000/ORSIMresults.csv, results/output/000/simulated_movements.RData, results/output/100/simulated_data_seeds_1.RData, results/output/100/simulated_data_seeds_2.RData, results/output/100/simulated_data_seeds_4.RData, resources/LandCover/Galapagos_Agroecosystems_LandCover2018.shp, resources/LandCover/benitez_landcover_Santa_Cruz.shp, results/output/000/downslope_migration.RData
+    output: results/figures/Figure_2.jpg, results/figures/Figure_S1.jpg, results/figures/Figure_S2.jpg, results/figures/Figure_S6.jpg
+    jobid: 1
+
+[Wed Apr  7 11:31:49 2021]
+Error in rule plot_figures:
+    jobid: 1
+    output: results/figures/Figure_2.jpg, results/figures/Figure_S1.jpg, results/figures/Figure_S2.jpg, results/figures/Figure_S6.jpg
+
+RuleException:
+CalledProcessError in line 22 of /Volumes/Marius_SSD/Yale-MPIO/Galapagos/Galapagos-tortoise-migration/galapagos-tortoises/workflow/rules/figures.smk:
+Command 'set -euo pipefail;  Rscript --vanilla /Volumes/Marius_SSD/Yale-MPIO/Galapagos/Galapagos-tortoise-migration/galapagos-tortoises/.snakemake/scripts/tmp6m_pnsw7.201-plot_figures.R' returned non-zero exit status 1.
+  File "/Users/mariussomveille/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2326, in run_wrapper
+  File "/Volumes/Marius_SSD/Yale-MPIO/Galapagos/Galapagos-tortoise-migration/galapagos-tortoises/workflow/rules/figures.smk", line 22, in __rule_plot_figures
+  File "/Users/mariussomveille/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 568, in _callback
+  File "/Users/mariussomveille/miniconda3/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+  File "/Users/mariussomveille/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 554, in cached_or_run
+  File "/Users/mariussomveille/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2357, in run_wrapper
+Removing output files of failed job plot_figures since they might be corrupted:
+results/figures/Figure_2.jpg
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /Volumes/Marius_SSD/Yale-MPIO/Galapagos/Galapagos-tortoise-migration/galapagos-tortoises/.snakemake/log/2021-04-07T113114.157450.snakemake.log

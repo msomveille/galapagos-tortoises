@@ -1,0 +1,4 @@
+NameError in line 43 of /Volumes/Marius_SSD/Yale-MPIO/Galapagos/Galapagos-tortoise-migration/galapagos-tortoises/workflow/rules/simulate-migrations.smk:
+name 'connectivity' is not defined
+  File "/Volumes/Marius_SSD/Yale-MPIO/Galapagos/Galapagos-tortoise-migration/galapagos-tortoises/workflow/Snakefile", line 13, in <module>
+  File "/Volumes/Marius_SSD/Yale-MPIO/Galapagos/Galapagos-tortoise-migration/galapagos-tortoises/workflow/rules/simulate-migrations.smk", line 43, in <module>

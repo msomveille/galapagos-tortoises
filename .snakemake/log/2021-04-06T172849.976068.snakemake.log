@@ -1,0 +1,73 @@
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Conda environments: ignored
+Job counts:
+	count	jobs
+	1	all
+	1	data_prep
+	1	plot_figures
+	1	run_ORSIM
+	3	seed_dispersal
+	1	simulate_movements
+	8
+Select jobs to execute...
+
+[Tue Apr  6 17:28:50 2021]
+rule data_prep:
+    input: resources/Elevation/SRTM_Santa_Cruz.tif, resources/NDVI/NDVI_highlands.tif, resources/NDVI/NDVI_lowlands.tif, results/output/000/chull_highland.shp, results/output/000/chull_lowland.shp
+    output: results/output/000/galapagos_hexagons_data.csv, results/output/000/distanceMatrix.csv
+    jobid: 2
+
+[Tue Apr  6 17:41:50 2021]
+Finished job 2.
+1 of 8 steps (12%) done
+Select jobs to execute...
+
+[Tue Apr  6 17:41:51 2021]
+rule run_ORSIM:
+    input: results/output/000/galapagos_hexagons_data.csv, results/output/000/distanceMatrix.csv
+    output: results/output/000/ORSIMresults.csv
+    jobid: 3
+
+[Tue Apr  6 17:41:53 2021]
+Finished job 3.
+2 of 8 steps (25%) done
+Select jobs to execute...
+
+[Tue Apr  6 17:41:53 2021]
+rule simulate_movements:
+    input: results/output/000/galapagos_hexagons_data.csv, results/output/000/ORSIMresults.csv, resources/eRTG/eRTG_V1.r, results/output/000/downslope_migration.RData
+    output: results/output/000/simulated_movements.RData
+    jobid: 4
+
+[Tue Apr  6 18:19:23 2021]
+Finished job 4.
+3 of 8 steps (38%) done
+Select jobs to execute...
+
+[Tue Apr  6 18:19:23 2021]
+rule seed_dispersal:
+    input: resources/Elevation/SRTM_Santa_Cruz.tif, results/output/000/simulated_movements.RData, resources/LandCover/Galapagos_Agroecosystems_LandCover2018.shp, resources/SDM_guava/Current/psidium_current_cut.gri
+    output: results/output/100/simulated_data_seeds_4.RData
+    jobid: 7
+    wildcards: mfreq=4
+
+[Tue Apr  6 18:20:00 2021]
+Error in rule seed_dispersal:
+    jobid: 7
+    output: results/output/100/simulated_data_seeds_4.RData
+
+RuleException:
+CalledProcessError in line 15 of /Volumes/Marius_SSD/Yale-MPIO/Galapagos/Galapagos-tortoise-migration/galapagos-tortoises/workflow/rules/seed-dispersal.smk:
+Command 'set -euo pipefail;  Rscript --vanilla /Volumes/Marius_SSD/Yale-MPIO/Galapagos/Galapagos-tortoise-migration/galapagos-tortoises/.snakemake/scripts/tmpensbjsu9.101-seed_dispersal.R' returned non-zero exit status 1.
+  File "/Users/mariussomveille/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2326, in run_wrapper
+  File "/Volumes/Marius_SSD/Yale-MPIO/Galapagos/Galapagos-tortoise-migration/galapagos-tortoises/workflow/rules/seed-dispersal.smk", line 15, in __rule_seed_dispersal
+  File "/Users/mariussomveille/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 568, in _callback
+  File "/Users/mariussomveille/miniconda3/lib/python3.8/concurrent/futures/thread.py", line 57, in run
+  File "/Users/mariussomveille/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 554, in cached_or_run
+  File "/Users/mariussomveille/miniconda3/lib/python3.8/site-packages/snakemake/executors/__init__.py", line 2357, in run_wrapper
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /Volumes/Marius_SSD/Yale-MPIO/Galapagos/Galapagos-tortoise-migration/galapagos-tortoises/.snakemake/log/2021-04-06T172849.976068.snakemake.log

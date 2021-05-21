@@ -1,0 +1,14 @@
+include: "rules/common.smk"
+
+###  Target rules ###
+
+rule all:
+    input:
+        fig_2 = "results/figures/Figure_2.jpg",
+        fig_3 = "results/figures/Figure_3.jpg"
+
+###  Modules ###
+
+include: "rules/simulate-migrations.smk"
+include: "rules/seed-dispersal.smk"
+include: "rules/figures.smk"
